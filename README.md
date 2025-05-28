@@ -111,7 +111,7 @@ Server will be running at `http://localhost:5000`.
 ### Signup
 
 ```bash
-curl -X POST http://localhost:5000/api/auth/signup \
+curl -X POST http://localhost:5000/signup \
   -H "Content-Type: application/json" \
   -d '{"username":"testuser","password":"Test@1234"}'
 ```
@@ -119,7 +119,7 @@ curl -X POST http://localhost:5000/api/auth/signup \
 ### Login
 
 ```bash
-curl -X POST http://localhost:5000/api/auth/login \
+curl -X POST http://localhost:5000/login \
   -H "Content-Type: application/json" \
   -d '{"username":"testuser","password":"Test@1234"}'
 ```
@@ -127,7 +127,7 @@ curl -X POST http://localhost:5000/api/auth/login \
 ### Add Book
 
 ```bash
-curl -X POST http://localhost:5000/api/books \
+curl -X POST http://localhost:5000/books \
   -H "Authorization: Bearer <JWT_TOKEN>" \
   -H "Content-Type: application/json" \
   -d '{"title":"Clean Code","author":"Robert C. Martin","publishedYear":2008,"genre":"Software Engineering"}'
@@ -136,20 +136,20 @@ curl -X POST http://localhost:5000/api/books \
 ### Get Books (with filters)
 
 ```bash
-curl http://localhost:5000/api/books?page=1&limit=5&author="Robert C. Martin"
+curl http://localhost:5000/books?page=1&limit=5&author="Robert C. Martin"
 ```
 
 ### Get Book Details
 
 ```bash
-curl http://localhost:5000/api/books/<BOOK_ID> \
+curl http://localhost:5000/books/<BOOK_ID> \
   -H "Authorization: Bearer <JWT_TOKEN>"
 ```
 
 ### Submit Review
 
 ```bash
-curl -X POST http://localhost:5000/api/books/<BOOK_ID>/reviews \
+curl -X POST http://localhost:5000/books/<BOOK_ID>/reviews \
   -H "Authorization: Bearer <JWT_TOKEN>" \
   -H "Content-Type: application/json" \
   -d '{"rating":5,"review":"Excellent read!"}'
