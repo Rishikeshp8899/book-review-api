@@ -45,7 +45,7 @@ book-review-api/
 1. **Clone repository**
 
    ```bash
-   git clone https://github.com/yourusername/book-review-api.git
+   git clone https://github.com/Rishikeshp8899/book-review-api.git
    cd book-review-api
    ```
 
