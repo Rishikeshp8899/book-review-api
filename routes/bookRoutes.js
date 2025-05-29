@@ -6,7 +6,7 @@ const auth=require('../middlewares/auth')
 
 
 router.post('/', auth,addBook);
-router.get('/', auth,getBookByAuthorAndGenre);
+router.get('/', getBookByAuthorAndGenre);
 router.get('/:id', auth,getBookById);
 router.get('/genres', auth,getAllGenres);
 router.post('/:id/reviews', auth, postReview);

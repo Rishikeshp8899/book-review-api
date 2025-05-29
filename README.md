@@ -52,6 +52,7 @@ book-review-api/
 2. **Install dependencies**
 
    ```bash
+   npm install express mongoose jsonwebtoken bcryptjs dotenv
    npm install
    ```
 
@@ -67,7 +68,9 @@ book-review-api/
 4. **Run the server**
 
    ```bash
+   
    npm start
+
    ```
 
    or with nodemon:
