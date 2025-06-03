@@ -109,6 +109,13 @@ Server will be running at `http://localhost:5000`.
 | PUT    | `/reviews/:id` | Update your review (auth & ownership) |
 | DELETE | `/reviews/:id` | Delete your review (auth & ownership) |
 
+### Public Search (No Auth Required)
+
+| Method | Endpoint       | Description                           |
+| ------ | -------------- | ------------------------------------- |
+|GET     |	`/search`     |Search books by author and title
+
+
 ## 📖 Example Requests
 
 ### Signup

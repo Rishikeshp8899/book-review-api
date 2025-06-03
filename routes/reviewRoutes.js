@@ -4,9 +4,6 @@ const auth=require('../middlewares/auth')
 
 const router = express.Router();
 
-
-// Review routes
-
 router.put('/:id', auth, updateReview);
 router.delete('/:id', auth, deleteReview);
 

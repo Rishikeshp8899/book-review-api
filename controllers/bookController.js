@@ -2,58 +2,35 @@ const Book =require('../models/Book')
 const Review = require('../models/Review');
 require('dotenv').config();
 
-const addBook=async(req,res)=>{
- try {
+const addBook = async (req, res) => {
+  try {
     const { title, author, publishedYear, genre } = req.body;
 
-    // Create a new book instance
+    // Optional: Validate required fields
+    if (!title || !author || !genre || !publishedYear) {
+      return res.status(400).json({ message: '❌ All fields are required' });
+    }
+
+    // Create a new book instance with lowercase values
     const book = new Book({
-      title,
-      author,
+      title: title.toLowerCase(),
+      author: author.toLowerCase(),
       publishedYear,
-      genre
+      genre: genre.toLowerCase()
     });
-    // Save to DB
+
+    // Save to database
     await book.save();
 
     res.status(201).json({
       message: '✅ Book added successfully',
       data: book
     });
+
   } catch (error) {
     res.status(500).json({ message: '❌ Failed to add book', error: error.message });
   }
-}
-
-const getBookByAuthorAndGenre = async (req, res) => {
-  try {
-    const { author, genre } = req.query;
-    const page = parseInt(req.query.page) || 1;     // Default: 1
-    const limit = parseInt(req.query.limit) || 10;  // Default: 10
-
-     const skip = (page - 1) * limit;
-
-    // Build a dynamic filter object
-    let filter = {};
-    if (author) filter.author = author;
-    if (genre) filter.genre = genre;
-
-    // Find books matching the filter
-    const books = await Book.find(filter).skip(skip) .limit(limit)
-
-    res.status(200).json({
-      message: '📚 Books fetched successfully',
-      count: books.length,
-      data: books
-    });
-  } catch (error) {
-    res.status(500).json({
-      message: '❌ Error fetching books',
-      error: error.message
-    });
-  }
 };
-
 
 const getAllGenres = async (req, res) => {
   try {
@@ -111,4 +88,4 @@ const getBookById = async (req, res) => {
   }
 };
 
-module.exports = {addBook,getBookByAuthorAndGenre,getAllGenres,getBookById};
+module.exports = {addBook,getAllGenres,getBookById};
