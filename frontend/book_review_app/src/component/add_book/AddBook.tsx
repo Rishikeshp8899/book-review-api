@@ -3,7 +3,7 @@ import  './addBook.css'
 const AddBook=()=>{
     return(
         <>
-    <h1>App</h1>
+    <h1>Add book</h1>
     </>
     );
 };

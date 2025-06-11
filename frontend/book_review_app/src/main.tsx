@@ -13,6 +13,8 @@ import Review from './component/review/Review.tsx';
 import Signup from './component/signup/Signup.tsx';
 import { AuthProvider } from './auth/Auth.tsx';
 import { ProtectedRoute } from './auth/ProtecedRouter.tsx';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 const router = createBrowserRouter([
@@ -42,9 +44,7 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: (
-          <ProtectedRoute>
             <Login />
-          </ProtectedRoute>
         ),
       },
 

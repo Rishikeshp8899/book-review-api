@@ -1,0 +1,22 @@
+.header-container{
+    width: 99vw;
+    color: blueviolet;
+    height: 8vh;
+}
+.header-container ul{
+    list-style: none;
+    display:flex;
+    align-items: center;
+    justify-content:space-around;
+    background-color: yellow;
+    margin-top: 2%;
+}
+.header-container ul li{
+    width: 10%;
+    text-align: center;
+}
+
+header-container ul:hover{
+   background-color: rosybrown;
+   color: brown;
+}
